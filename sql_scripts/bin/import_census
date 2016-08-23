@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+DIR=${1:-'$(dirname $0)/../../'}
+DBNAME=${2:-'SF1_2010'}
+
+if [ "${1: -4}" == "help" ]; then
+  echo "Usage: import_census [DIR] [DBNAME]"
+  echo "DIR defaults to $(dirname $0)/../../"
+  echo "DBNAME defaults to SF1_2010"
+  echo
+  echo "DIR will be where DBNAME is created and where to recursively search for census data files."
+  exit 0
+fi
+
+echo ".mode csv" > ${DIR}/tmp
+
+for i in $(seq -w 1 48)
+do
+  find $DIR -name "*000${i}2010.ur1" -type f -exec echo ".import {} SF1_000${i}" >> ${DIR}/tmp \;
+done
+
+echo 'DROP TABLE IF EXISTS fixed_width_table;' >> ${DIR}/tmp
+echo 'CREATE TABLE fixed_width_table (full_string CHAR);' >> ${DIR}/tmp
+echo '.separator "^"' >> ${DIR}/tmp
+
+find $DIR -name "*geo2010.ur1" -type f -exec echo ".import {} fixed_width_table" >> ${DIR}/tmp \;
+
+cat $(dirname $0)/../sql/insert_geo.sql >> ${DIR}/tmp
+
+echo '.separator "|"' >> ${DIR}/tmp
+echo 'DROP TABLE IF EXISTS fixed_width_table;' >> ${DIR}/tmp
+
+sqlite3 ${DIR}/$DBNAME -init ${DIR}/tmp && rm ${DIR}/tmp

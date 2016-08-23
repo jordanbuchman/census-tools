@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+DBNAME=${1:-'SF1_2010'}
+SCHEMA=${2:-'$(dirname $0)/../sql/sqlite_schema.sql'}
+
+if [ ! -f $DBNAME ] && [ -f $SCHEMA ]; then
+  sqlite3 $DBNAME -init $SCHEMA
+else
+  echo "$DBNAME already exists or $SCHEMA does not exist!"
+fi
