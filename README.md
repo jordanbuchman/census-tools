@@ -32,7 +32,6 @@ cd ~/census/data
 You can run this command to download everything. In most cases "Puerto Rico" and "National" should be deleted to avoid unwanted or duplicate data. Also, this is a very big download, census.gov blocked my IP after running this command.
 
 ```bash
-cd data
 wget -m -e robots=off --no-parent http://www2.census.gov/census_2010/04-Summary_File_1/
 ```
 
