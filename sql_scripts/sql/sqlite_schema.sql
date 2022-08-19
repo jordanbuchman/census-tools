@@ -841,6 +841,10 @@ CREATE TABLE `SF1_00005`
 
 CREATE TABLE `SF1_00006`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P0310001`			INTEGER,
 	`P0310002`			INTEGER,
@@ -1101,6 +1105,10 @@ CREATE TABLE `SF1_00006`
 
 CREATE TABLE `SF1_00007`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P0500001`			INTEGER,
 	`P0500002`			INTEGER,
@@ -1617,6 +1625,10 @@ CREATE TABLE `SF1_00009`
 
 CREATE TABLE `SF1_00010`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P029A001`			INTEGER,
 	`P029A002`			INTEGER,
@@ -1875,6 +1887,10 @@ CREATE TABLE `SF1_00010`
 
 CREATE TABLE `SF1_00011`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P031A001`			INTEGER,
 	`P031A002`			INTEGER,
@@ -2135,6 +2151,10 @@ CREATE TABLE `SF1_00011`
 
 CREATE TABLE `SF1_00012`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P034F001`			INTEGER,
 	`P034F002`			INTEGER,
@@ -7426,6 +7446,10 @@ CREATE TABLE `SF1_00037`
 
 CREATE TABLE `SF1_00038`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`PCT020F001`			INTEGER,
 	`PCT020F002`			INTEGER,
@@ -8997,6 +9021,10 @@ CREATE TABLE `SF1_00048`
 
 CREATE TABLE `SF1_00008`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`P012F001`			INTEGER,
 	`P012F002`			INTEGER,
@@ -9256,6 +9284,10 @@ CREATE TABLE `SF1_00008`
 
 CREATE TABLE `SF1_00015`
  (
+	`FILEID`			varchar,
+	`STUSAB`			varchar,
+	`CHARITER`			varchar,
+	`CIFSN`			varchar,
 	`LOGRECNO`			INTEGER,
 	`PCT0010001`			INTEGER,
 	`PCT0010002`			INTEGER,
