@@ -21,24 +21,22 @@ data        sql_scripts
 
 ## Acquiring Census Data
 
-Download the census data from [this link to census.gov's summary file](https://www2.census.gov/census_2010/04-Summary_File_1/) and put it in a folder.
+Download the census data from [this link to census.gov's summary file](https://www2.census.gov/census_2010/04-Summary_File_1/) and put it in a folder inside this repository (the exact path doesn't matter, it just needs to be a subdirectory of this folder).
 
-My path will be:
+You can run this command to download everything.
 
 ```bash
-cd ~/census/data
+wget -m -e robots=off --no-parent https://www2.census.gov/census_2010/04-Summary_File_1/Urban_Rural_Update/
 ```
 
-You can run this command to download everything. In most cases "Puerto Rico" and "National" should be deleted to avoid unwanted or duplicate data. Also, this is a very big download, census.gov blocked my IP after running this command.
-
+After downloading, you need to unzip all the `.ur1` files present in the download. You can accomplish this by running this command somewhere inside this repository.
 ```bash
-wget -m -e robots=off --no-parent http://www2.census.gov/census_2010/04-Summary_File_1/
+find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; done;
 ```
 
 ## Creating and Importing to the Database
-
+NOTE: This will take a long time!
 ```bash
-cd ..
 sql_scripts/bin/create_census_db
 sql_scripts/bin/import_census
 ```
